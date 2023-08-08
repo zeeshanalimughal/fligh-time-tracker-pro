@@ -1,0 +1,128 @@
+{
+	"info": {
+		"_postman_id": "9a8f9cec-2db1-4e7a-9d59-d00cf441fdc0",
+		"name": "flight-time-tracker-pro-prod",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "18666204"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "user sign-up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Zeeshan\",\r\n    \"lastName\": \"Ali\",\r\n    \"avatar\": \"\",\r\n    \"email\": \"zeeshanaliryk18@gmail.com\",\r\n    \"password\": \"Zeeshan@123\",\r\n    \"confirmPassword\": \"Zeeshan@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/api/v1/user/sign-up"
+					},
+					"response": []
+				},
+				{
+					"name": "user verify-email",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"zeeshanaliryk18@gmail.com\",\r\n    \"otp\": \"181487\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/api/v1/user/verify-email"
+					},
+					"response": []
+				},
+				{
+					"name": "user login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"zeeshanaliryk18@gmail.com\",\r\n    \"password\": \"Zeeshan@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/api/v1/auth/login"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "user forgot password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"zeeshanaliryk18@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/api/v1/auth/forgot-password"
+					},
+					"response": []
+				},
+				{
+					"name": "user forgot password verify otp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"zeeshanaliryk18@gmail.com\",\r\n    \"otp\": \"411282\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/api/v1/auth/verify-otp"
+					},
+					"response": []
+				},
+				{
+					"name": "user reset password with otp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"zeeshanaliryk18@gmail.com\",\r\n    \"otp\": \"411282\",\r\n    \"password\": \"Zeeshan@321\",\r\n    \"confirmPassword\": \"Zeeshan@321\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/api/v1/auth/reset-password"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

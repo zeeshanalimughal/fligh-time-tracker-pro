@@ -1,3 +1,4 @@
+import { FlightDetails, IFlight } from './flightInterface';
 import { ApiErrorInterface } from './apiErrorInterface';
 import { AuthInterface } from './authInterface';
 import { MailInterface } from './mailInterface';
@@ -18,4 +19,6 @@ export {
     Response,
     IRole,
     IUser,
+    FlightDetails,
+    IFlight
 };

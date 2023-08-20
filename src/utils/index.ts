@@ -1,7 +1,8 @@
 import * as jwt from 'jsonwebtoken';
 import otpMaster from '../models/otpMaster';
 import HttpError from './httpError';
-
+import axios from "axios"
+import { FlightDetails } from '../interfaces';
 // USED TO GENERATE JWT WITH PAYLOAD AND OPTIONS AS PARAMETERS.
 // THE PAYLOAD CONTAINS THE DATA WHICH WILL BE SET AS JWT PAYLOAD.
 // OPTIONS CONTAIN JWT OPTIONS
@@ -124,6 +125,32 @@ const verifyOtp = async function (
     return existOtp._id;
 };
 
+type FlightType = {
+    flights: [FlightDetails]
+}
+
+async function callFlightAwareApi(
+    path: string,
+    headers = {
+        "x-apikey": process.env.AERO_FLIGHT_API_KEY,
+    }
+): Promise<FlightType> {
+    try {
+        const response = await axios.get(
+            `${process.env.AERO_API_BASE_URL}${path}`,
+            { headers }
+        );
+        return response.data;
+    } catch (error) {
+        throw new HttpError({
+            title: 'bad_request',
+            detail: JSON.stringify(error.response.data),
+            code: 400,
+        })
+    }
+}
+
+
 
 //EXPORT
 export {
@@ -135,4 +162,5 @@ export {
     generateRandomPassword,
     generateOtp,
     verifyOtp,
+    callFlightAwareApi
 };

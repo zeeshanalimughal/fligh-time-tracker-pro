@@ -4,7 +4,15 @@
     "description": "Flight Time Tracker Pro Applicaion Backend",
     "author": "Zeeshan Ali",
     "license": "ISC",
-    "keywords": ["Node Js", "Express Js", "MongoDb","TS NODE","Rest Api", "Flights Api Node Js", "Flights Time Tracker"],
+    "keywords": [
+        "Node Js",
+        "Express Js",
+        "MongoDb",
+        "TS NODE",
+        "Rest Api",
+        "Flights Api Node Js",
+        "Flights Time Tracker"
+    ],
     "main": "src/index.ts",
     "scripts": {
         "watch": "tsc -w",
@@ -16,6 +24,7 @@
     "dependencies": {
         "@types/jsonwebtoken": "^9.0.2",
         "aws-sdk": "^2.1430.0",
+        "axios": "^1.4.0",
         "bcrypt": "^5.1.0",
         "chalk": "^4.1.2",
         "dotenv": "^16.3.1",

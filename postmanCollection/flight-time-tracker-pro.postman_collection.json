@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "9a8f9cec-2db1-4e7a-9d59-d00cf441fdc0",
+		"_postman_id": "b7184fef-6408-4f0e-be1f-b22395c1da2b",
 		"name": "flight-time-tracker-pro-prod",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
-		"_exporter_id": "18666204"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28780853"
 	},
 	"item": [
 		{
@@ -23,7 +23,20 @@
 								}
 							}
 						},
-						"url": "http://localhost:5000/api/v1/user/sign-up"
+						"url": {
+							"raw": "http://localhost:5000/api/v1/user/sign-up",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"sign-up"
+							]
+						}
 					},
 					"response": []
 				},
@@ -34,14 +47,27 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"zeeshanaliryk18@gmail.com\",\r\n    \"otp\": \"181487\"\r\n}",
+							"raw": "{\r\n    \"email\": \"zeeshanaliryk18@gmail.com\",\r\n    \"otp\": \"568670\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "http://localhost:5000/api/v1/user/verify-email"
+						"url": {
+							"raw": "http://localhost:5000/api/v1/user/verify-email",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"verify-email"
+							]
+						}
 					},
 					"response": []
 				},
@@ -59,7 +85,20 @@
 								}
 							}
 						},
-						"url": "http://localhost:5000/api/v1/auth/login"
+						"url": {
+							"raw": "http://localhost:5000/api/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
 					},
 					"response": []
 				}
@@ -82,7 +121,20 @@
 								}
 							}
 						},
-						"url": "http://localhost:5000/api/v1/auth/forgot-password"
+						"url": {
+							"raw": "http://localhost:5000/api/v1/auth/forgot-password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"forgot-password"
+							]
+						}
 					},
 					"response": []
 				},
@@ -100,7 +152,20 @@
 								}
 							}
 						},
-						"url": "http://localhost:5000/api/v1/auth/verify-otp"
+						"url": {
+							"raw": "http://localhost:5000/api/v1/auth/verify-otp",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"verify-otp"
+							]
+						}
 					},
 					"response": []
 				},
@@ -118,7 +183,114 @@
 								}
 							}
 						},
-						"url": "http://localhost:5000/api/v1/auth/reset-password"
+						"url": {
+							"raw": "http://localhost:5000/api/v1/auth/reset-password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"reset-password"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Flight",
+			"item": [
+				{
+					"name": "get-flight-data",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ZTFlMGU0YzFkN2I4NjczYTRiMmE2OSIsInJvbGUiOiJ1c2VyIiwidG9rZW5UeXBlIjoiYWNjZXNzIiwiaWF0IjoxNjkyNTI0Nzk2LCJleHAiOjE2OTI1MjgzOTYsImF1ZCI6InJvb3QiLCJpc3MiOiJ6ZWVzaGFuYWxpcnlrMThAZ21haWwuY29tIiwic3ViIjoiemVlc2hhbmFsaXJ5azE4QGdtYWlsLmNvbSJ9.1bbVtBXDwGF5QkQvMdvclg4MQ_LXetXV25QbGAybaFI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/v1/flight/get-flight/CSZ9358-1692514652-schedule-784p",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"flight",
+								"get-flight",
+								"CSZ9358-1692514652-schedule-784p"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-user-flight",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ZTFlMGU0YzFkN2I4NjczYTRiMmE2OSIsInJvbGUiOiJ1c2VyIiwidG9rZW5UeXBlIjoiYWNjZXNzIiwiaWF0IjoxNjkyNTI0Nzk2LCJleHAiOjE2OTI1MjgzOTYsImF1ZCI6InJvb3QiLCJpc3MiOiJ6ZWVzaGFuYWxpcnlrMThAZ21haWwuY29tIiwic3ViIjoiemVlc2hhbmFsaXJ5azE4QGdtYWlsLmNvbSJ9.1bbVtBXDwGF5QkQvMdvclg4MQ_LXetXV25QbGAybaFI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-apikey",
+								"value": "DqeJvPuo1e6hcVi8n3qWkePFwFxLI79Q",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fa_flight_id\":\"CSZ9358-1692342080-schedule-242p\",\r\n       \"duty\": {\r\n        \"on_duty\": [\"Yes\"],\r\n        \"off_duty\": [\"No\"]\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/v1/flight/update-user-flight",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"flight",
+								"update-user-flight"
+							]
+						}
 					},
 					"response": []
 				}

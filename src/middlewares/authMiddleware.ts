@@ -4,7 +4,7 @@ import HttpError from '../utils/httpError';
 
 const auth = async function (req: Request, res: Response, next: NextFunction) {
     try {
-        const token = req.headers.authorization;
+        const token = req.headers.authorization.split("Bearer ")[1];
         const payload = validateToken(token);
 
         if (payload['tokenType'] !== 'access') {

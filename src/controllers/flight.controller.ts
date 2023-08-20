@@ -7,19 +7,19 @@ import FlightDetailsModel from '../models/flight';
 // GET FLIGHT OF USER AND SAVE DATA INTO DB
 const getFlightOfUser = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const filghtId: String = req.params.flightId;
-        if (!filghtId) throw new HttpError({
+        const flightId: String = req.params.flightId;
+        if (!flightId) throw new HttpError({
             title: 'bad_request',
             detail: 'Flight Id is required',
             code: 400,
         });
 
         // Get the flight details from flightAware api with flight id.
-        let data = await callFlightAwareApi(`/flights/${filghtId}`)
+        let data = await callFlightAwareApi(`/flights/${flightId}`)
         const flight: [FlightDetails] = data?.flights
         if (!flight?.length) throw new HttpError({
             title: 'bad_request',
-            detail: 'No Flight Found With Id ' + filghtId,
+            detail: 'No Flight Found With Id ' + flightId,
             code: 400,
         });
 
@@ -63,7 +63,7 @@ const getFlightOfUser = async (req: Request, res: Response, next: NextFunction) 
         const userId = payload['id'];
         const userFlight = await FlightDetailsModel.findOneAndUpdate({
             userId,
-            fa_flight_id: filghtId
+            fa_flight_id: flightId
         }, {
             $set: flightToSave,
         }, { upsert: true, new: true })
@@ -78,8 +78,8 @@ const getFlightOfUser = async (req: Request, res: Response, next: NextFunction) 
 const createNewFlight = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const userFlight: IFlight = req.body
-        const filghtId: String = userFlight.fa_flight_id;
-        if (!filghtId) throw new HttpError({
+        const flightId: String = userFlight.fa_flight_id;
+        if (!flightId) throw new HttpError({
             title: 'bad_request',
             detail: 'Flight Id is required',
             code: 400,
@@ -89,7 +89,7 @@ const createNewFlight = async (req: Request, res: Response, next: NextFunction) 
         const userId = payload['id'];
         const flightUser = await FlightDetailsModel.findOneAndUpdate({
             userId,
-            fa_flight_id: filghtId
+            fa_flight_id: flightId
         }, {
             $set: userFlight,
         }, { upsert: true, new: true })

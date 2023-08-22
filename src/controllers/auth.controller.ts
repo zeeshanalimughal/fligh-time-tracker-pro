@@ -48,7 +48,7 @@ const login = async (
 
         let user = await User.findOne({ email }).populate('role');
 
-        const isValidPass = await compare(password, user.password);
+        const isValidPass = await compare(password, user?.password);
         //CHECK FOR USER VERIFIED AND EXISTING
         if (!user.isEmailVerified) {
             throw new HttpError({

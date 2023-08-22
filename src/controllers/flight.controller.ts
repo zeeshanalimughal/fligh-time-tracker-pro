@@ -101,8 +101,48 @@ const createNewFlight = async (req: Request, res: Response, next: NextFunction) 
     }
 };
 
+// DELETE USER FLIGHT BY ID
+const deleteUserFlight = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const flightId: String = req.params.flightId;
+        console.log(flightId)
+        if (!flightId) throw new HttpError({
+            title: 'bad_request',
+            detail: 'Flight Id is required',
+            code: 400,
+        });
+
+        const payload = req['tokenPayload'];
+        const userId = payload['id'];
+
+        const flightExists = await FlightDetailsModel.findOne({
+            userId,
+            fa_flight_id: flightId
+        })
+        if (!flightExists) {
+            throw new HttpError({
+                title: 'bad_request',
+                detail: 'Flight Not Found',
+                code: 400,
+            });
+        }
+        await FlightDetailsModel.deleteOne({
+            userId,
+            fa_flight_id: flightId
+        })
+        return res.send({
+            status: "success",
+            message: "Flight deleted successfully."
+        })
+
+    } catch (error) {
+        next(error);
+    }
+};
+
 //EXPORT
 export default {
     createNewFlight,
-    getFlightOfUser
+    getFlightOfUser,
+    deleteUserFlight
 };

@@ -27,5 +27,14 @@ _router
         flightController.getFlightOfUser
     );
 
+// DELETE FLIGHT BY FLIGHT_ID
+_router
+    .route('/delete-flight/:flightId')
+    .delete(
+        auth,
+        permit([RoleType.ADMIN, RoleType.USER]),
+        flightController.deleteUserFlight
+    );
+
 //EXPORT
 export const router = _router;

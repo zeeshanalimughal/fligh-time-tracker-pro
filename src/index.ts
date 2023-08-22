@@ -86,7 +86,6 @@ const StartServer = async () => {
                 'Flight Tracker Pro Api',
         });
     });
-
     //API ERROR HANDLING
     router.use((req, res, next) => {
         const error = new Error('not found');

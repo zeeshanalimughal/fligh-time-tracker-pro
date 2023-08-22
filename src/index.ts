@@ -83,7 +83,7 @@ const StartServer = async () => {
         res.status(200).json({
             success: true,
             message:
-                'You are on node-typescript-boilderplate. You should not have further access from here.',
+                'Flight Tracker Pro Api',
         });
     });
 

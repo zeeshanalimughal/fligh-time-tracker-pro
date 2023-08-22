@@ -23,6 +23,7 @@ mongoose
         Logging.error(error);
     });
 
+    
 //ONLY START THE SERVER IF MONGOOSE IS CONNECTS
 const StartServer = async () => {
     //MAIL SMTP CONNECTION

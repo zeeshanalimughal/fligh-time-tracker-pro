@@ -9,7 +9,6 @@ import HttpError from './utils/httpError';
 import { crateRole } from './controllers/role.controller';
 
 const router = express();
-
 //CONNECTION TO MONGOOSE DATABASE
 mongoose
     .connect(config.mongo.url, { retryWrites: true, w: 'majority' })
